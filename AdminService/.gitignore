@@ -3,3 +3,5 @@
 .idea/
 __pycache__
 venv/
+docker-compose.yaml
+Database/postgres-configmap.yaml
