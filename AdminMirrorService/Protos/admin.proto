@@ -1,0 +1,72 @@
+syntax = 'proto3';
+
+message car{
+    int32 parkingid = 1;
+    carId carId = 2;
+    string userId = 3;
+    string dateIn = 4;
+    string dateOut = 5;
+    location location = 6;
+    string isparked = 7;
+
+}
+
+message Parking{
+    int32 parking_id = 1;
+    string user_id = 2;
+    string car_id = 3;
+    string date_in = 4;
+    string date_out = 5;
+    string location = 6;
+    bool isparked = 7;
+}
+
+message Parkings{
+    repeated Parking Parkings = 1;
+}
+message cars{
+    repeated car cars = 1;
+}
+message admin{
+    string adminId = 1;
+}
+message isParkedDate{
+    admin admin =1;
+    string date = 2;
+}
+message location{
+    string location = 1;
+}
+
+message carId{
+    string carId = 1;
+}
+
+message adminAllCarLocation{
+    admin admin = 1;
+    location location =2;
+}
+message adminAllCarId{
+    admin admin = 1;
+    carId carId =2;
+}
+message adminAllCarIdLocation{
+    admin admin = 1;
+    carId carId = 2;
+    location location = 3;
+}
+
+message message{
+    string msg = 1;
+}
+
+service adminApi{
+    rpc getAllCar (admin) returns (Parkings);//all cars
+    rpc getAllCarParked (admin) returns (Parkings);// all cars parked right now
+    rpc getAllCarParkedByDate (isParkedDate) returns (Parkings);//all cars at a certain date
+    rpc getAllCarByLocation (adminAllCarLocation) returns (Parkings);//all cars parked at a certain location
+    rpc getCarParkingDetails (adminAllCarId) returns (Parkings);//locations of parking for the particular car????????????????
+    rpc getCarByLocationCurrentlyParked (adminAllCarLocation) returns (Parkings);//car at a particular location currently ispark=true
+    rpc getCarByLocationCarId (adminAllCarIdLocation) returns (message);//checks if the car is present at a particular location ispark=true
+}
+
