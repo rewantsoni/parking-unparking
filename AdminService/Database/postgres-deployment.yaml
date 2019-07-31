@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: parkingdbmirror
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: parkingdbmirror
+  template:
+    metadata:
+      labels:
+        app: parkingdbmirror
+    spec:
+      containers:
+        - name: parkingdbmirror
+          image: postgres
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: parking-mirror
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: POSTGRES_HOST
+              value: parkingdbmirror
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: parking-mirror
+      volumes:
+        - name: parking-mirror
+          persistentVolumeClaim:
+            claimName: parkingdbmirror-pv-claim
