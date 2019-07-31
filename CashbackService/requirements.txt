@@ -1,0 +1,8 @@
+kafka-python
+grpcio
+grpcio-tools
+flask
+flask-sqlalchemy
+flask-migrate
+flask-script
+psycopg2
