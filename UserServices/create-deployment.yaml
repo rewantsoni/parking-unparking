@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userservice-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: userservice-deployment
+  template:
+    metadata:
+      labels:
+        app: userservice-deployment
+    spec:
+      containers:
+        - name: userservice
+          image: userservice
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 30100
