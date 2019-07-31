@@ -1,0 +1,8 @@
+flask
+grpcio
+grpcio-tools
+pybreaker
+Flask-SQLAlchemy
+flask-migrate
+flask-script
+psycopg2
