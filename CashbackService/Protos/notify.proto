@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message message{
+    string Msg = 1;
+    bool eligible = 2;
+}
+
+message stub{
+    string userId = 2;
+}
+
+service cashBackApi{
+    rpc sendMessage (stub) returns (message);
+}
+
+//Think about how you want to send cashback
+//cashback service will inform user? when its parking? yes so need server side on the user? yup because then cashback is the client
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./helloworld.proto
