@@ -1,0 +1,10 @@
+Flask-SQLAlchemy
+grpcio
+grpcio-tools
+kafka-python
+pybreaker
+Flask
+Flask-migrate
+Flask-script
+sqlalchemy
+psycopg2
