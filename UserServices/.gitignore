@@ -1,0 +1,6 @@
+.DS_Store
+.gitignore
+.idea/
+create-pod.yaml
+__pycache__
+venv/
