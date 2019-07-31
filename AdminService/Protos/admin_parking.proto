@@ -1,0 +1,24 @@
+syntax = 'proto3';
+
+message toInsert{
+    string userId = 1;
+    string carId = 2;
+    string location = 3;
+    string dateIn = 4;
+    string dateOut = 5;
+    bool isparked = 6;
+}
+
+message toUpdate{
+    string carId =4;
+    string loc = 5;
+    string dateOut = 1;
+}
+
+message stub{
+
+}
+service adminParkingApi{
+    rpc insert (toInsert) returns (stub);
+    rpc update (toUpdate) returns (stub);
+}
