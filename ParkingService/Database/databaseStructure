@@ -1,0 +1,11 @@
+create database parking;
+
+CREATE TABLE parking(
+  parking_id serial PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  car_id TEXT NOT NULL,
+  date_in TIMESTAMP,
+  date_out TIMESTAMP,
+  location TEXT NOT NULL,
+  isparked boolean NOT NULL
+);
