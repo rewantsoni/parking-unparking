@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: adminmirrorservice
+  labels:
+    app: adminmirrorservice-deployment
+spec:
+  selector:
+    app: adminmirrorservice-deployment
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 31743
+      name: adminmirrorservice
+      nodePort: 31743
+
