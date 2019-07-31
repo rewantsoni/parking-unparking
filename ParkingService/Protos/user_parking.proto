@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message message{
+    bool msg = 1;
+}
+
+message user{
+    string user = 1;
+}
+
+service userParkingApi{
+    rpc validate_user (user) returns (message);
+}

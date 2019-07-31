@@ -1,0 +1,31 @@
+syntax = 'proto3';
+
+
+message userDetailsPark{
+    string userId = 1;
+    carId carId = 2;
+}
+
+message location{
+    string location = 1;
+}
+
+message carId{
+    string carId = 1;
+}
+
+message userDetailsUnPark{
+    string userId = 1;
+    carId carId = 2;
+    location location = 3;
+}
+
+message response{
+    string Msg = 1;
+}
+
+service userApi{
+    rpc park (userDetailsPark) returns (location);//for parking
+    rpc unPark (userDetailsUnPark) returns (response);//for unParking
+    //rpc checkOffer (stub) returns (message);//for cashBack
+}
