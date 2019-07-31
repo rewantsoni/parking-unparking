@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminmirrorservice-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: adminmirrorservice-deployment
+  template:
+    metadata:
+      labels:
+        app: adminmirrorservice-deployment
+    spec:
+      containers:
+        - name: adminmirrorservice
+          image: adminmirrorservice
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 31743
